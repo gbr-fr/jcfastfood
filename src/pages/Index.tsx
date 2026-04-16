@@ -1,16 +1,30 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Categories from "@/components/Categories";
+import MenuSection from "@/components/MenuSection";
+import CartDrawer from "@/components/CartDrawer";
+import Footer from "@/components/Footer";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
+  const handleSelectCategory = (id: string) => {
+    setActiveCategory((prev) => (prev === id ? null : id));
+    const el = document.getElementById("cardapio");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen bg-background">
+      <Header />
+      <Hero />
+      <Categories onSelectCategory={handleSelectCategory} activeCategory={activeCategory} />
+      <MenuSection activeCategory={activeCategory} />
+      <Footer />
+      <CartDrawer />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
