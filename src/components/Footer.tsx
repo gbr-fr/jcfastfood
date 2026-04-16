@@ -37,7 +37,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-primary transition-colors"
               >
-                <Instagram size={14} className="text-primary" />
+                <span className="text-primary text-xs">📸</span>
                 @jc.fastfood
               </a>
               <div className="flex items-center gap-2">
